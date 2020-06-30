@@ -1,26 +1,44 @@
+
+
 var startButton = document.getElementById("start-btn");
 var startScreen = document.getElementById("start-screen");
 var questionContainer = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
-var currentQuestionIndex;
+
+var timerEl = document.getElementById("timer");
+var secondsLeft = 75
+var timeInterval;
+
+function startTimer() {
+  timerInterval = setInterval(function () {
+    timerEl.textContent = "Time: " +
+    secondsLeft;
+      secondsLeft--;
+
+      if (secondsLeft <= 0) {
+        timerEl.textContent = "Time: " + 0;
+      }
+
+  }, 1000);
+};
 
 
 
 function startQuiz() {
     startScreen.classList.add("hide")
     questionContainer.classList.remove("hide")
-    numQuestions = questions.length = 5; 
     currentQuestionIndex = 0
     askQuestion()
+    startTimer()
 }
 
 function askQuestion () {
-    displayQuestion([currentQuestionIndex])
+    question
     
 }
 
 function displayQuestion () {
-    questionEl.innerText = question.question
+    
 
 
 
@@ -77,3 +95,4 @@ var questions = [
   ];
 
 startButton.addEventListener("click", startQuiz)
+startButton.addEventListener("click", startTimer)
