@@ -4,10 +4,12 @@ var startButton = document.getElementById("start-btn");
 var startScreen = document.getElementById("start-screen");
 var questionContainer = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
+var randomQuestion, currentQuestionIndex;
 
 var timerEl = document.getElementById("timer");
 var secondsLeft = 75
 var timeInterval;
+
 
 function startTimer() {
   timerInterval = setInterval(function () {
@@ -27,20 +29,19 @@ function startTimer() {
 function startQuiz() {
     startScreen.classList.add("hide")
     questionContainer.classList.remove("hide")
+    randomQuestion = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     askQuestion()
-    startTimer()
 }
 
-function askQuestion () {
-    question
-    
+function askQuestion() {
+  getQuestion(randomQuestion[currentQuestionIndex])
+  console.log(getQuestion);
 }
 
-function displayQuestion () {
-    
 
-
+function getQuestion(question) {
+  questionEl.innerText = question.question
 
 }
 
@@ -48,7 +49,7 @@ function displayQuestion () {
 
 var questions = [
     {
-      question: "Commonly used data types DO NOT INCLUDE",
+      question: "Commonly used data types do not include",
       answers: [ 
         {text: "1. alerts", correct: true},
         {text: "2. booleans", correct: false},
@@ -75,7 +76,7 @@ var questions = [
       ]
     },
     {
-      question: "A very useful tool used during developmenet and debugging for printing content to the debugger is:",
+      question: "A very useful tool used during development and debugging for printing content to the debugger is:",
       answers: [
       {text: "1. JavaScript", correct: false},
       {text: "2. terminal/bash", correct: false},
@@ -93,6 +94,10 @@ var questions = [
       ]
     }
   ];
+
+  for (var index in questions) {
+    console.log(index);
+  }
 
 startButton.addEventListener("click", startQuiz)
 startButton.addEventListener("click", startTimer)
