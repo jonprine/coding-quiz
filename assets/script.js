@@ -1,5 +1,3 @@
-
-
 var startButton = document.getElementById("start-btn");
 var startScreen = document.getElementById("start-screen");
 var questionContainer = document.getElementById("question-container");
@@ -47,10 +45,11 @@ function getQuestion(question) {
 }
 
 function getAnswers(question) {
+  answerBtns.innerHTML = "";
   var answers = question.answers
   for (i = 0; i < answers.length; i++) {
     var btn = document.createElement("button");
-    btn.className = "btn"; 
+    btn.className = "btn";
     btn.innerText = answers[i].text;
     btn.setAttribute("data-correct", answers[i].correct);
     btn.addEventListener("click", correctAnswer)
@@ -120,4 +119,3 @@ var questions = [
 
 startButton.addEventListener("click", startQuiz)
 startButton.addEventListener("click", startTimer)
-
