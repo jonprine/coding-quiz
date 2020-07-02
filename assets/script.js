@@ -57,12 +57,17 @@ function getAnswers(question) {
   }
 }
 
+function wrongAnswer() {
+  secondsLeft = secondsLeft - 15;
+}
+
 function correctAnswer() {
   if (this.dataset.correct === "true") {
     alert("Correct")
   } else {
     alert("Incorrect")
   }
+  wrongAnswer()
   currentQuestionIndex++
   askQuestion()
 }
