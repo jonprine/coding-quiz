@@ -66,8 +66,8 @@ function correctAnswer() {
     alert("Correct")
   } else {
     alert("Incorrect")
+    wrongAnswer()
   }
-  wrongAnswer()
   currentQuestionIndex++
   askQuestion()
 }
