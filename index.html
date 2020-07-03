@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,9 @@
         <p id="timer">Time: <span>75</span></p>
     </header>
 
-
-    <div id = "start-screen" class="start">
-        <h1>Coding Quiz Challenge</h1>
+    <div class="container">
+        <div id="start-screen" class="start">
+            <h1>Coding Quiz Challenge</h1>
             <p>Try to answer the following code-related questions within the time limit.
                 <br>
                 Keep in mind that incorrect answers will penalize your score / time
@@ -24,23 +25,22 @@
                 by ten seconds!
             </p>
             <button id="start-btn" class="start-btn">Start Quiz</button>
-    </div>
-    
+        </div>
 
-    <div class="container">
-         <div id="question-container" class="hide">
-             <div id="question"></div>
-             <div id="answer-buttons" class="btn-grid"></div>
-             <div id="feedback"></div>
-         </div>
-    </div>
 
-    <div id="finished">
-        <h2>All done!</h2>
-        <form>
-            <input type="text" id="initials" placeholder="Enter initials">
-            <button id="submit-btn">Submit</button>
-        </form>
+
+        <div id="question-container" class="hide">
+            <div id="question"></div>
+            <div id="answer-buttons" class="btn-grid"></div>
+            <div id="feedback"></div>
+        </div>
+        <div id="finished" style="display: none;">
+            <h2>All done!</h2>
+            <form>
+                <input type="text" id="initials" placeholder="Enter initials">
+                <button id="submit-btn">Submit</button>
+            </form>
+        </div>
     </div>
 
 
@@ -48,4 +48,5 @@
 
     </script>
 </body>
+
 </html>

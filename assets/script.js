@@ -65,14 +65,14 @@ function getAnswers(question) {
 }
 
 function wrongAnswer() {
-  secondsLeft = secondsLeft - 15;
+  secondsLeft = secondsLeft - 10;
 }
 
-/*function seeScore() {
+function seeScore() {
   recordScore.classList.remove("hide")
   window.location.href="./assets/highscores.html"
 
-} */
+} 
         
 function correctAnswer() {
   if (this.dataset.correct === "true") {
@@ -86,12 +86,16 @@ function correctAnswer() {
   askQuestion()
   } else {
   score = secondsLeft;
+  clearInterval(timerEl);
   recordScore.style.display = "block"
-  clearInterval(timer);
+  console.log(clearInterval);
   questionContainer.classList.add("hide")
-  //seeScore()  
   }
 }
+
+
+
+
 
 
 var questions = [
@@ -142,6 +146,5 @@ var questions = [
   }
 ];
 
-document.onload
 startButton.addEventListener("click", startQuiz)
 startButton.addEventListener("click", startTimer)
