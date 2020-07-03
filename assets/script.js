@@ -5,6 +5,7 @@ var questionEl = document.getElementById("question");
 var answerBtns = document.getElementById("answer-buttons");
 //console.log(answerBtns);
 var randomQuestion, currentQuestionIndex;
+var feedbackEl = document.getElementById('feedback');
 
 var timerEl = document.getElementById("timer");
 var secondsLeft = 75
@@ -34,6 +35,7 @@ function startTimer() {
 function startQuiz() {
   startScreen.classList.add("hide")
   questionContainer.classList.remove("hide")
+  recordScore.style.display = "none"
   randomQuestion = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   askQuestion()
@@ -66,17 +68,17 @@ function wrongAnswer() {
   secondsLeft = secondsLeft - 15;
 }
 
-function seeScore() {
+/*function seeScore() {
   recordScore.classList.remove("hide")
   window.location.href="./assets/highscores.html"
 
-} 
+} */
         
 function correctAnswer() {
   if (this.dataset.correct === "true") {
-    alert("Correct")
+    feedbackEl.innerText = "Correct!"
   } else {
-    alert("Incorrect")
+    feedbackEl.innerText = "Wrong!"
     wrongAnswer()
   }
   if (currentQuestionIndex < questions.length - 1) {
@@ -84,10 +86,10 @@ function correctAnswer() {
   askQuestion()
   } else {
   score = secondsLeft;
-  alert("You Finished!") 
+  recordScore.style.display = "block"
   clearInterval(timer);
   questionContainer.classList.add("hide")
-  seeScore()  
+  //seeScore()  
   }
 }
 
@@ -140,6 +142,6 @@ var questions = [
   }
 ];
 
-
+document.onload
 startButton.addEventListener("click", startQuiz)
 startButton.addEventListener("click", startTimer)

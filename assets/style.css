@@ -60,8 +60,6 @@ header a    {
     color: white;
     outline: none;
     text-align: start;
-
- 
 }
 
 .btn:hover  {
@@ -101,6 +99,12 @@ header a    {
 #submit-btn:hover {
     background: rgb(255,0,255);
     cursor: pointer;
+}
+
+#feedback {
+    color: gray;
+    font-size: 20px;
+    font-style: italic;
 }
 
 .hide   {
