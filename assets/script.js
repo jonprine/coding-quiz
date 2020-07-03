@@ -10,6 +10,11 @@ var timerEl = document.getElementById("timer");
 var secondsLeft = 75
 var timeInterval;
 
+var score;
+
+var recordScore = document.getElementById("finished");
+
+
 
 function startTimer() {
   timerInterval = setInterval(function () {
@@ -61,6 +66,12 @@ function wrongAnswer() {
   secondsLeft = secondsLeft - 15;
 }
 
+function seeScore() {
+  recordScore.classList.remove("hide")
+  window.location.href="./assets/highscores.html"
+
+} 
+        
 function correctAnswer() {
   if (this.dataset.correct === "true") {
     alert("Correct")
@@ -68,8 +79,16 @@ function correctAnswer() {
     alert("Incorrect")
     wrongAnswer()
   }
+  if (currentQuestionIndex < questions.length - 1) {
   currentQuestionIndex++
   askQuestion()
+  } else {
+  score = secondsLeft;
+  alert("You Finished!") 
+  clearInterval(timer);
+  questionContainer.classList.add("hide")
+  seeScore()  
+  }
 }
 
 

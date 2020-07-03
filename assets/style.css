@@ -82,6 +82,59 @@ header a    {
     cursor: pointer;
 }
 
+#finished {
+    display: grid;
+    justify-content: center;
+    grid-gap: 1rem;
+    padding-top: 5rem;
+    text-align: center;
+}
+
+#submit-btn {
+    background-color: rgb(153,50,204);
+    border-radius: 10px;
+    padding: 5px 50px;
+    color: white;
+    outline: none;
+}
+
+#submit-btn:hover {
+    background: rgb(255,0,255);
+    cursor: pointer;
+}
+
 .hide   {
     display: none;
+}
+
+#high {
+    display: grid;
+    justify-content: center;
+    grid-gap: 1rem;
+    padding-top: 5rem;
+    text-align: center;
+}
+
+#goback-btn {
+    background-color: rgb(153,50,204);
+    border-radius: 10px;
+    padding: 5px 50px;
+    color: white;
+    outline: none;
+}
+#goback-btn:hover {
+    background: rgb(255,0,255);
+    cursor: pointer;
+}
+
+#clear-btn {
+    background-color: rgb(153,50,204);
+    border-radius: 10px;
+    padding: 5px 50px;
+    color: white;
+    outline: none;
+}
+#clear-btn:hover {
+    background: rgb(255,0,255);
+    cursor: pointer;
 }
