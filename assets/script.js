@@ -16,6 +16,9 @@ var timeInterval;
 var score;
 
 var recordScore = document.getElementById("finished");
+var highScores = document.getElementById("high");
+var backBtn = document.getElementById("goback-btn");
+
 
 
 
@@ -94,11 +97,40 @@ function correctAnswer() {
     score = secondsLeft + 11;
     recordScore.style.display = "block"
     questionContainer.classList.add("hide")
+    saveScore()
   }
 }
 
+var list = JSON.parse(localStorage.getItem("list"));
 
+function saveScore() {
+  if (list === null) {
+    list = [];
+  }
 
+  inputForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var userInput = initials.value.trim();
+
+    var newRecord = {
+      name: userInput,
+      score: secondsLeft + 11
+    };
+
+    list.push(newRecord)
+
+    localStorage.setItem("list", JSON.stringify(list))
+    recordScore.style.display = "none"
+    highScores.style.display = "block"
+  });
+
+};
+
+function backHome() {
+  highScores.style.display = "block"
+  startScreen.classList.remove("hide")
+
+}
 
 
 
@@ -152,5 +184,8 @@ var questions = [
   }
 ];
 
+
+
 startButton.addEventListener("click", startQuiz)
 startButton.addEventListener("click", startTimer)
+backBtn.addEventListener("click", backHome)
