@@ -3,7 +3,9 @@ var startScreen = document.getElementById("start-screen");
 var questionContainer = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
 var answerBtns = document.getElementById("answer-buttons");
-//console.log(answerBtns);
+var inputForm = document.getElementById("input-form");
+var initials = document.getElementById("initials");
+
 var randomQuestion, currentQuestionIndex;
 var feedbackEl = document.getElementById('feedback');
 
@@ -41,6 +43,7 @@ function startQuiz() {
   askQuestion()
 }
 
+
 function askQuestion() {
   getQuestion(randomQuestion[currentQuestionIndex])
   getAnswers(randomQuestion[currentQuestionIndex])
@@ -70,10 +73,10 @@ function wrongAnswer() {
 
 function seeScore() {
   recordScore.classList.remove("hide")
-  window.location.href="./assets/highscores.html"
+  window.location.href = "./assets/highscores.html"
 
-} 
-        
+}
+
 function correctAnswer() {
   if (this.dataset.correct === "true") {
     feedbackEl.innerText = "Correct!"
@@ -82,16 +85,19 @@ function correctAnswer() {
     wrongAnswer()
   }
   if (currentQuestionIndex < questions.length - 1) {
-  currentQuestionIndex++
-  askQuestion()
+    currentQuestionIndex++
+    askQuestion()
   } else {
-  score = secondsLeft;
-  clearInterval(timerEl);
-  recordScore.style.display = "block"
-  console.log(clearInterval);
-  questionContainer.classList.add("hide")
+    // stops timer
+    clearInterval(timerInterval);
+    // record score - not sure why I'm having to add 11 to get right number. guessing to offset wrongAnswer function.
+    score = secondsLeft + 11;
+    recordScore.style.display = "block"
+    questionContainer.classList.add("hide")
   }
 }
+
+
 
 
 
