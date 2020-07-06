@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <a href="assets/highscores.html">View high scores</a>
+        <a href="#" id="link">View high scores</a>
         <p id="timer">Time: <span>75</span></p>
     </header>
 
@@ -43,11 +43,12 @@
         </div>
         <div id="high" style="display: none;">
             <h2>High Scores</h2>
-            <form>
-                <input type="text" id="initials" placeholder="Enter initials">
-                <button id="goback-btn">Go Back</button>
-                <button id="clear-btn">Clear High Scores</button>
-            </form>
+            <div>
+            <ol id="list-names"></ol>
+            </div>
+            <button id="goback-btn">Go Back</button>
+            <button id="clear-btn">Clear High Scores</button>
+
         </div>
     </div>
 
